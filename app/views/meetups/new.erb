@@ -1,0 +1,32 @@
+
+<h1>Create New Meetup</h1>
+
+ <% @errors.each do |msg| %>
+   <h2><%= msg %></h2>
+<% end %>
+
+<form action="/meetups/new" method="post">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="meetup[name]" value="<%= @meetup.name %>">
+  </div>
+
+  <div>
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="meetup[location]" value="<%= @meetup.location %>">
+  </div>
+
+  <div>
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="meetup[description]" value="<%= @meetup.description %>">
+  </div>
+
+
+<div>
+  <input type="hidden"  name="meetup[creator]" value="<%= @username %>">
+  <input type="submit" value="Create Meetup">
+</div>
+
+</form>
+
+<a href="/meetups">Back to all Meetups</a>

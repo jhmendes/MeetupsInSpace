@@ -1,0 +1,37 @@
+<!-- lists out all the info about the meetup -->
+<!--  name, description, location, creator-->
+<!-- should see a list of members, user avatars and username -->
+<!--  call.users on the meetup, then iterate through each one since its an array
+call .username on that parameter as well as display the avatar url with an image tag!-->
+<h3><%= @message %></h3>
+
+<h1><%= @meetup.name %></h1>
+
+
+<h2>Location:</h2>
+<p><%= @meetup.location %></p>
+
+<h2>Creator:</h2>
+<p><%= @username %></p>
+
+<h3>Description:</h3>
+<p><%= @meetup.description %></p>
+
+<h3>Members:</h3>
+<ul>
+  <% @members.each do |member| %>
+    <li><%= member.username %></li>
+    <img src="<%= member.avatar_url %>">
+ <% end %>
+</ul>
+
+<form id="join" action="/meetups/join/<%= @meetup.id %>" method="POST">
+  <input type=submit value="Join This Meetup">
+</form>
+
+<h3><%= @sign_in %></h3>
+<h3><%= @joined %></h3>
+<!-- is the above form correct? -->
+
+
+<a href="/meetups">Back to all Meetups</a>
