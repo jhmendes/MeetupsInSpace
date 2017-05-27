@@ -4,9 +4,9 @@ require 'spec_helper'
 # So that I can learn more about its purpose
 
 # Acceptance Criteria:
-#
 # On the index page, the name of each meetup should be a link to the meetup's show page.
 # On the show page, I should see the name, description, location, and the creator of the meetup.
+
 feature "user views details of meetup group" do
 
 

@@ -1,10 +1,10 @@
 <h1>Meetups in Space</h1>
 
-<h3>List of Current Meetup Groups:</h3>
-<!-- <ul> -->
+<h2>List of Current Meetup Groups:</h2>
+
   <% @meetups.each do |meetup| %>
   <h3><a href="/meetups/<%= meetup.id %>"><%= meetup.name %></a></h3>
   <% end %>
-<!-- </ul> -->
+
 
 <a href="/meetups/new">Create New Meetup</a>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Meetups</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/normalize.css" />
+    <link rel="stylesheet" href="/stylesheets/app.css" />
+  </head>
+  <body>
+
+    <div class="top-bar">
+      <div class="container">
+        <a class="logo" href="/">Meetups in Space</a>
+
+        <ul class="top-bar-section">
+          
+            <li>Signed in as jmendes</a></li>
+            <li><a href="/sign_out">Sign Out</a></li>
+          
+        </ul>
+      </div>
+    </div>
+
+    
+      <div class="flash">
+        <div class="container">
+          You've successfully created a meetup!
+        </div>
+      </div>
+    
+
+    <div class="container">
+      <!-- lists out all the info about the meetup -->
+<!--  name, description, location, creator-->
+<!-- should see a list of members, user avatars and username -->
+<!--  call.users on the meetup, then iterate through each one since its an array
+call .username on that parameter as well as display the avatar url with an image tag!-->
+<h3></h3>
+
+<h1>CT Web Developers</h1>
+
+
+<h2>Location:</h2>
+<p>Hartford, CT</p>
+
+<h2>Creator:</h2>
+<p>jmendes</p>
+
+<h3>Description:</h3>
+<p>Join a community of Web Developers from Connecticut</p>
+
+<h3>Members:</h3>
+<ul>
+  
+</ul>
+
+<form id="join" action="/meetups/join/1" method="POST">
+  <input type=submit value="Join This Meetup">
+</form>
+
+<h3></h3>
+<h3></h3>
+<!-- is the above form correct? -->
+
+
+<a href="/meetups">Back to all Meetups</a>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="/javascripts/app.js"></script>
+  </body>
+</html>

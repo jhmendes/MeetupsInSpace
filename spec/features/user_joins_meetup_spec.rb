@@ -12,7 +12,7 @@ require 'spec_helper'
 # that I have joined the meetup and I should be added to the meetup's members list.
 
 # If I am not signed in and I click the button, I should see a message which says that I must sign in.
-#
+
 feature "user can join a meetup group" do
 
 

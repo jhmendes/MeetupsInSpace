@@ -10,7 +10,6 @@ require 'spec_helper'
 # I must be signed in, and I must supply a name, location, and description.
 # If the form submission is successful, I should be brought to the meetup's show page,
 # and I should see a message that lets me know that I have created a meetup successfully.
-# CONTINUE HERE!
 
 # If the form submission is unsuccessful, I should remain on the meetups new page,
 # and I should see error messages explaining why the form submission was unsuccessful.
@@ -30,10 +29,12 @@ feature "user creates meetup group" do
     fill_in('Location', with: 'Hartford, CT')
     fill_in('Description', with: 'Join a community of Web Developers from Connecticut')
     click_button('Create Meetup')
+    # save_and_open_page
     expect(page).to have_content("Signed in as jmendes")
     expect(page).to have_content("CT Web Developers Location: Hartford, CT Creator: jmendes
     Description: Join a community of Web Developers from Connecticut")
     expect(page).to have_content("You've successfully created a meetup!")
+
 
   end
 

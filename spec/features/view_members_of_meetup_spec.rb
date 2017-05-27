@@ -10,8 +10,6 @@ require 'spec_helper'
 
 feature "user views members of a meetup group" do
 
-
-
   scenario "user successfully views meetup group members" do
     mynewmeetup = Meetup.create!({
         name: "Rubyists", description: "Come chat Ruby with other developers!",
@@ -31,6 +29,6 @@ feature "user views members of a meetup group" do
     expect(page).to have_content "Rubyists Location: Hartford, CT Creator: jmendes
     Description: Come chat Ruby with other developers!"
     expect(page).to have_content "Members: Launcher1 Launcher2"
-  
+
   end
 end

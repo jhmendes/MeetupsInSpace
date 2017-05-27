@@ -58,12 +58,12 @@ post '/meetups/join/:id' do
   erb :'meetups/show'
 
   if current_user.nil?
-    @sign_in = "You must be signed in to join this group"
-    erb :'meetups/show'
+    flash[:notice] = "You must be signed in to join this group"
+    redirect "/meetups/#{@meetup.id}"
   else
-    @joined = "You've successfully joined this meetup! Welcome to the group."
+    flash[:notice] = "You've successfully joined this meetup! Welcome to the group."
     @new_membership = Membership.create(user_id: current_user.id, meetup_id: @meetup.id)
-    erb :'meetups/show'
+    redirect "/meetups/#{@meetup.id}"
   end
 
 end
@@ -71,12 +71,15 @@ end
 
 post '/meetups/new' do
   @members = []
-  @username = current_user.username
+  if !current_user.nil?
+    @username = current_user.username
+  end
   params[:meetup][:creator] = @username
   @meetup = Meetup.create(params[:meetup])
     if @meetup.valid?
-      @message = "You've successfully created a meetup!"
-      erb :'meetups/show'
+      # @message = "You've successfully created a meetup!"
+      flash[:notice] = "You've successfully created a meetup!"
+      redirect "/meetups/#{@meetup.id}"
     else
       @errors = @meetup.errors.full_messages
       erb :'meetups/new'
