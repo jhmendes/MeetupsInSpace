@@ -22,14 +22,12 @@ get '/auth/github/callback' do
   user = User.find_or_create_from_omniauth(env['omniauth.auth'])
   session[:user_id] = user.id
   flash[:notice] = "You're now signed in as #{user.username}!"
-
   redirect '/'
 end
 
 get '/sign_out' do
   session[:user_id] = nil
   flash[:notice] = "You have been signed out."
-
   redirect '/'
 end
 
@@ -40,7 +38,6 @@ end
 
 get '/meetups/new' do
   @errors = []
-
   @meetup = Meetup.new
   erb :'meetups/new'
 end
@@ -71,17 +68,21 @@ end
 
 post '/meetups/new' do
   @members = []
+
   if !current_user.nil?
     @username = current_user.username
   end
+
   params[:meetup][:creator] = @username
+
   @meetup = Meetup.create(params[:meetup])
+
     if @meetup.valid?
-      # @message = "You've successfully created a meetup!"
       flash[:notice] = "You've successfully created a meetup!"
       redirect "/meetups/#{@meetup.id}"
     else
       @errors = @meetup.errors.full_messages
       erb :'meetups/new'
     end
+
 end
